@@ -6,7 +6,7 @@ namespace App;
 
 use App\Interfaces\iPrice;
 
-class PriceCalculator
+class PriceCalculator implements iPrice
 {
     const MINIMAL_SUM = 0;
 
@@ -38,5 +38,14 @@ class PriceCalculator
         }
 
         return $sum;
+    }
+
+    /**
+     * Цена аттрибута
+     * @return int
+     */
+    public function getPrice(): int
+    {
+        return $this->calculate();
     }
 }
